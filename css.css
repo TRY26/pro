@@ -1,69 +1,33 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-/* body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    scroll-behavior: smooth;
-}
-
-header {
-    position: relative;
-    background: linear-gradient(45deg, #4a00e0, #8e2de2);
-    padding: 100px 20px;
-    color: #fff;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
+.home-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6f61;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #f0f0f0;
+/* Home Button Hover Effect */
+.home-button:hover {
+    background-color: #e05549;
+    transform: translateY(-3px);
 }
 
-.hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.hero-section .btn {
-    background-color: #fff;
-    color: #4a00e0;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.hero-section .btn:hover {
-    background-color: #8e2de2;
+/* Footer */
+.footer-section {
+    background-color: #333;
     color: #fff;
-} */
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+style:
 /* General Styles */
 * {
     margin: 0;
@@ -76,17 +40,25 @@ body {
     background-color: #f4f4f4;
     color: #333;
     scroll-behavior: smooth;
+    padding-top: 60px; /* To avoid overlap with fixed navbar */
+}
+
+/* Navigation Bar Styles */
+nav {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(45deg, #4a00e0, #8e2de2);
+    padding: 15px 20px;
+    top: 0; /* Change to top: 0 for proper alignment */
+    z-index: 1000;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    top: 0;
-    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -94,14 +66,76 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #fffcf9;
     text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
 }
 
 nav ul li a:hover {
-    color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Active State */
+nav ul li a.active {
+    background-color: #2600fd;
+    color: #fff;
+    box-shadow: 0 0 15px #fff;
+}
+
+nav ul li a.active:hover {
+    background-color: #f39c12;
+    color: #fff !important;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    font-size: 2rem;
+    color: #fffcf9;
+    position: absolute;
+    top: 15px; /* Adjust for spacing */
+    right: 20px;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger menu on mobile */
+    }
+
+    nav ul {
+        display: none; /* Hide the nav items initially */
+        flex-direction: column;
+        position: absolute;
+        background: #4a00e0;
+        top: 60px; /* Adjust position below the navbar */
+        width: 100%;
+        left: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul.active {
+        display: flex; /* Show the nav items when active */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        font-size: 1.2rem;
+        width: 100%;
+        display: block;
+    }
 }
 
 /* Hero Section */
@@ -270,4 +304,8 @@ footer {
 footer p {
     margin-top: 20px;
     font-size: 0.9rem;
+}
+.navbar .nav-links li a.active {
+    background-color: var(--nav-active);
+    color: var(--secondary-color);
 }
