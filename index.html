@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Rishikesh's Portfolio</title>
     <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <div class="hamburger">&#9776;</div>
+            <ul class="nav-links">
                 <li><a href="#intro">Home</a></li>
-                <li><a href="#work-experience">Projects</a></li>
+                <li><a href="#Projects">Projects</a></li>
                 <li><a href="#about-me">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -26,34 +28,35 @@
         </div>
     </header>
     
-
     <section id="intro">
         <h2>Introduction</h2>
-        <p>Hi, I'm Rishikesh, a creative and detail-oriented software developer with a passion for building innovative digital solutions. I specialize in transforming complex problems into simple, efficient code. I thrive on staying at the cutting edge of technology, continuously learning and experimenting with new frameworks and tools to deliver robust, scalable, and user-friendly applications. Whether it's crafting sleek user interfaces or architecting powerful back-end systems, I am driven by a commitment to excellence and a desire to bring ideas to life through code.</p>
+        <p>Hi, I'm Rishikesh, a creative and detail-oriented software developer...</p>
     </section>
     
+    <section id="Projects">
 
-    <section id="work-experience">
-        <h2>Work Experience</h2>
+        <h2>Projects</h2>
+
         <div class="timeline">
             <div class="timeline-item">
-                <h3>PROJECT A - FIRE EXTINGUISHING ROBO </h3>
+                <h3>PROJECT A - FIRE EXTINGUISHING ROBO</h3>
                 <span class="timeline-date">2023 - 2024</span>
-                <p>A fire extinguishing robot equipped with remote control and automatic detection ensures swift response in emergency situations. It autonomously detects fire intensity and deploys the appropriate extinguishing method based on the fire level. This innovative solution enhances safety by offering both manual and automated fire control capabilities.</p>
+                <p>A fire extinguishing robot equipped with remote control...</p>
             </div>
             <div class="timeline-item">
-                <h3>PROJECT B - SOLAR BAG MONITORING </h3>
+                <h3>PROJECT B - SOLAR BAG MONITORING</h3>
                 <span class="timeline-date">2022 - 2023</span>
-                <p>A solar-powered bag monitoring system harnesses renewable energy to keep devices charged while tracking the bag's location and security. It features integrated sensors to monitor movement and environmental conditions in real time. This smart solution offers convenience and peace of mind for travelers and daily commuters alike.</p>
+                <p>A solar-powered bag monitoring system harnesses renewable energy...</p>
             </div>
         </div>
+        <a href='project.html' class="btn">VIEW PROJECTS</a>
     </section>
 
     <section id="about-me">
         <h2>About Me</h2>
         <div class="about-container">
             <img src="profile.jpg" alt="Rishikesh's Photo" class="profile-pic">
-            <p>I’m a passionate software developer with a strong focus on creating efficient, scalable solutions that solve complex problems. I enjoy working with both front-end and back-end technologies, continuously learning new tools to stay ahead in the tech world. My goal is to deliver clean, high-quality code that powers innovative digital experiences.</p>
+            <p>I'm a passionate software developer with a strong focus on creating efficient...</p>
         </div>
     </section>
 
@@ -75,5 +78,24 @@
         <p>&copy; 2024 Rishikesh</p>
     </footer>
 
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Toggle the active class
+        });
+
+        const linkElements = document.querySelectorAll('.nav-links li a');
+        linkElements.forEach(link => {
+            link.addEventListener('click', function() {
+                // Remove 'active' class from all links
+                linkElements.forEach(nav => nav.classList.remove('active'));
+                // Add 'active' class to the clicked link
+                this.classList.add('active');
+                navLinks.classList.remove('active'); // Close the menu
+            });
+        });
+    </script>
 </body>
 </html>
